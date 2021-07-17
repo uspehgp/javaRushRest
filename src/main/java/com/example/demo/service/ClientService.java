@@ -8,9 +8,9 @@ public interface ClientService {
 
     void create(Client client);
 
-    List<Client> readAll();
+    List<Client> getAll();
 
-    Client read(int id);
+    Client getById(int id);
 
     boolean update(Client client, int id);
 

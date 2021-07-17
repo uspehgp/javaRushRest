@@ -26,7 +26,7 @@ public class ClientController {
 
     @GetMapping(value = "/clients")
     public ResponseEntity<List<Client>> read() {
-        final List<Client> clients = clientService.readAll();
+        final List<Client> clients = clientService.getAll();
         return clients != null && !clients.isEmpty()
                 ? new ResponseEntity<>(clients, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -34,7 +34,7 @@ public class ClientController {
 
     @GetMapping(value = "/clients/{id}")
     public ResponseEntity<Client> read(@PathVariable(name = "id") int id) {
-        final Client client = clientService.read(id);
+        final Client client = clientService.getById(id);
         return client != null
                 ? new ResponseEntity<>(client, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);

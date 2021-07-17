@@ -24,20 +24,19 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public List<Client> readAll() {
+    public List<Client> getAll() {
         return new ArrayList<>(CLIENT_REPOSITORY_MAP.values());
     }
 
     @Override
-    public Client read(int id) {
-
+    public Client getById(int id) {
         return CLIENT_REPOSITORY_MAP.get(id);
     }
 
     @Override
     public boolean update(Client client, int id) {
         if (CLIENT_REPOSITORY_MAP.containsKey(id)) {
-            client.setId(id);
+//            client.setId(id);
             CLIENT_REPOSITORY_MAP.put(id, client);
             return true;
         }
